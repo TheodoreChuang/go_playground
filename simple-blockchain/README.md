@@ -1,8 +1,8 @@
 # Simple Blockchain in Go
 
-## Running
+## Running as HTTP Server
 Running the server:
-`go run main.go`
+`go run simple-blockchain -server=http`
 
 View the current state:
 CLI or browser at `http://localhost:8080/`
@@ -13,6 +13,15 @@ curl --location --request POST 'localhost:8080/' \
 --header 'Content-Type: text/plain' \
 --data-raw '{"BPM": 60}'
 `
+
+## Running as TCP Server
+Creates a network consisting of a TCP server and many other connections. Each connection can create new blocks. All block will be periodically synced with the current state.
+
+Running the server:
+`go run simple-blockchain -server=tcp`
+
+For each additional connection:
+`nc localhost 9000`
 
 ### Packages
 
